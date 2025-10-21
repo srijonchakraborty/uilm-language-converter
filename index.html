@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UILM Language Converter</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-language"></i>
+                    <h1>UILM Language Converter</h1>
+                </div>
+                <div class="header-actions">
+                    <button class="btn btn-secondary" id="clearBtn">
+                        <i class="fas fa-trash"></i>
+                        Clear All
+                    </button>
+                    <button class="btn btn-primary" id="generateBtn">
+                        <i class="fas fa-magic"></i>
+                        Generate
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="content-grid">
+                <!-- Input Section -->
+                <section class="input-section">
+                    <div class="section-header">
+                        <h2>Translation Input</h2>
+                        <p>Enter JSON translations for each language</p>
+                    </div>
+
+                    <!-- Configuration Panel -->
+                    <div class="config-panel">
+                        <div class="config-group">
+                            <div class="input-group">
+                                <label for="moduleId">Module ID</label>
+                                <input type="text" id="moduleId" placeholder="Enter module ID">
+                            </div>
+                            <div class="input-group">
+                                <label for="moduleName">Module Name</label>
+                                <input type="text" id="moduleName" placeholder="Enter module name">
+                            </div>
+                        </div>
+                        <div class="config-group">
+                            <div class="input-group">
+                                <label for="tenantId">Tenant ID</label>
+                                <input type="text" id="tenantId" placeholder="Enter tenant ID">
+                            </div>
+                            <div class="checkbox-group">
+                                <input type="checkbox" id="isPartiallyTranslated" checked>
+                                <label for="isPartiallyTranslated">Is Partially Translated</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Language Tabs -->
+                    <div class="language-tabs">
+                        <button class="tab-btn active" data-lang="en">
+                            <i class="fas fa-flag-usa"></i>
+                            English
+                        </button>
+                        <button class="tab-btn" data-lang="de">
+                            <i class="fas fa-flag"></i>
+                            German
+                        </button>
+                        <button class="tab-btn" data-lang="fr">
+                            <i class="fas fa-flag"></i>
+                            French
+                        </button>
+                        <button class="tab-btn" data-lang="it">
+                            <i class="fas fa-flag"></i>
+                            Italian
+                        </button>
+                    </div>
+
+                    <!-- Language Input Areas -->
+                    <!--<div class="language-inputs">
+                        <div class="language-input active" data-lang="en">
+                            <div class="input-header">
+                                <h3>English (en-US)</h3>
+                                <div class="input-actions">
+                                    <button class="btn-icon" title="Format JSON">
+                                        <i class="fas fa-code"></i>
+                                    </button>
+                                    <button class="btn-icon" title="Clear">
+                                        <i class="fas fa-times"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <textarea id="englishJson" placeholder='{"key1": "value1", "key2": "value2"}'></textarea>
+                        </div>
+
+                        <div class="language-input" data-lang="de">
+                            <div class="input-header">
+                                <h3>German (de-DE)</h3>
+                                <div class="input-actions">
+                                    <button class="btn-icon" title="Format JSON">
+                                        <i class="fas fa-code"></i>
+                                    </button>
+                                    <button class="btn-icon" title="Clear">
+                                        <i class="fas fa-times"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <textarea id="germanJson" placeholder='{"key1": "wert1", "key2": "wert2"}'></textarea>
+                        </div>
+
+                        <div class="language-input" data-lang="fr">
+                            <div class="input-header">
+                                <h3>French (fr-FR)</h3>
+                                <div class="input-actions">
+                                    <button class="btn-icon" title="Format JSON">
+                                        <i class="fas fa-code"></i>
+                                    </button>
+                                    <button class="btn-icon" title="Clear">
+                                        <i class="fas fa-times"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <textarea id="frenchJson" placeholder='{"key1": "valeur1", "key2": "valeur2"}'></textarea>
+                        </div>
+
+                        <div class="language-input" data-lang="it">
+                            <div class="input-header">
+                                <h3>Italian (it-IT)</h3>
+                                <div class="input-actions">
+                                    <button class="btn-icon" title="Format JSON">
+                                        <i class="fas fa-code"></i>
+                                    </button>
+                                    <button class="btn-icon" title="Clear">
+                                        <i class="fas fa-times"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <textarea id="italianJson" placeholder='{"key1": "valore1", "key2": "valore2"}'></textarea>
+                        </div>
+                    </div>-->
+                                    <!-- Language Input Areas -->
+                                    <div class="language-inputs">
+                                        <div class="language-input active" data-lang="en">
+                                            <div class="input-header">
+                                                <h3>English (en-US)</h3>
+                                                <div class="input-actions">
+                                                    <button class="btn-icon" title="Format JSON">
+                                                        <i class="fas fa-code"></i>
+                                                    </button>
+                                                    <button class="btn-icon" title="Clear">
+                                                        <i class="fas fa-times"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <div class="drag-drop-zone" data-lang="en">
+                                                <div class="drag-drop-overlay">
+                                                    <i class="fas fa-cloud-upload-alt"></i>
+                                                    <p>Drop JSON file here or click to browse</p>
+                                                    <small>Supports .json files only</small>
+                                                </div>
+                                                <textarea id="englishJson" placeholder='{"key1": "value1", "key2": "value2"}'></textarea>
+                                            </div>
+                                        </div>
+                
+                                        <div class="language-input" data-lang="de">
+                                            <div class="input-header">
+                                                <h3>German (de-DE)</h3>
+                                                <div class="input-actions">
+                                                    <button class="btn-icon" title="Format JSON">
+                                                        <i class="fas fa-code"></i>
+                                                    </button>
+                                                    <button class="btn-icon" title="Clear">
+                                                        <i class="fas fa-times"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <div class="drag-drop-zone" data-lang="de">
+                                                <div class="drag-drop-overlay">
+                                                    <i class="fas fa-cloud-upload-alt"></i>
+                                                    <p>Drop JSON file here or click to browse</p>
+                                                    <small>Supports .json files only</small>
+                                                </div>
+                                                <textarea id="germanJson" placeholder='{"key1": "wert1", "key2": "wert2"}'></textarea>
+                                            </div>
+                                        </div>
+                
+                                        <div class="language-input" data-lang="fr">
+                                            <div class="input-header">
+                                                <h3>French (fr-FR)</h3>
+                                                <div class="input-actions">
+                                                    <button class="btn-icon" title="Format JSON">
+                                                        <i class="fas fa-code"></i>
+                                                    </button>
+                                                    <button class="btn-icon" title="Clear">
+                                                        <i class="fas fa-times"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <div class="drag-drop-zone" data-lang="fr">
+                                                <div class="drag-drop-overlay">
+                                                    <i class="fas fa-cloud-upload-alt"></i>
+                                                    <p>Drop JSON file here or click to browse</p>
+                                                    <small>Supports .json files only</small>
+                                                </div>
+                                                <textarea id="frenchJson" placeholder='{"key1": "valeur1", "key2": "valeur2"}'></textarea>
+                                            </div>
+                                        </div>
+                
+                                        <div class="language-input" data-lang="it">
+                                            <div class="input-header">
+                                                <h3>Italian (it-IT)</h3>
+                                                <div class="input-actions">
+                                                    <button class="btn-icon" title="Format JSON">
+                                                        <i class="fas fa-code"></i>
+                                                    </button>
+                                                    <button class="btn-icon" title="Clear">
+                                                        <i class="fas fa-times"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <div class="drag-drop-zone" data-lang="it">
+                                                <div class="drag-drop-overlay">
+                                                    <i class="fas fa-cloud-upload-alt"></i>
+                                                    <p>Drop JSON file here or click to browse</p>
+                                                    <small>Supports .json files only</small>
+                                                </div>
+                                                <textarea id="italianJson" placeholder='{"key1": "valore1", "key2": "valore2"}'></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                </section>
+
+                <!-- Output Section -->
+                <section class="output-section">
+                    <div class="section-header">
+                        <h2>Generated Output</h2>
+                        <div class="output-actions">
+                            <button class="btn btn-secondary" id="copyBtn">
+                                <i class="fas fa-copy"></i>
+                                Copy
+                            </button>
+                            <button class="btn btn-secondary" id="downloadBtn">
+                                <i class="fas fa-download"></i>
+                                Download
+                            </button>
+                        </div>
+                    </div>
+                    <div class="output-container">
+                        <div class="output-stats" id="outputStats">
+                            <div class="stat-item">
+                                <span class="stat-label">Items:</span>
+                                <span class="stat-value" id="itemCount">0</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Languages:</span>
+                                <span class="stat-value" id="languageCount">0</span>
+                            </div>
+                        </div>
+                        <div class="output-content">
+                            <pre id="outputJson"></pre>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        <!-- Loading Overlay -->
+        <div class="loading-overlay" id="loadingOverlay">
+            <div class="loading-spinner">
+                <i class="fas fa-spinner fa-spin"></i>
+                <p>Processing translations...</p>
+            </div>
+        </div>
+
+        <!-- Toast Notifications -->
+        <div class="toast-container" id="toastContainer"></div>
+    </div>
+
+    <script src="js/utils.js"></script>
+    <script src="js/jsonFlattener.js"></script>
+    <script src="js/translationProcessor.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
